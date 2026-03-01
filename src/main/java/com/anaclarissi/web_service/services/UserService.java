@@ -4,6 +4,7 @@ import com.anaclarissi.web_service.entities.User;
 import com.anaclarissi.web_service.repositories.UserRepository;
 import com.anaclarissi.web_service.services.exceptions.DatabaseException;
 import com.anaclarissi.web_service.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -58,11 +59,19 @@ public class UserService {
 
     public User update(Long id, User user) {
 
-        User entity = repository.getReferenceById(id);
+        try {
 
-        updateDate(entity, user);
+            User entity = repository.getReferenceById(id);
 
-        return repository.save(entity);
+            updateDate(entity, user);
+
+            return repository.save(entity);
+
+        } catch (EntityNotFoundException e) {
+
+            throw new ResourceNotFoundException(id);
+
+        }
 
     }
 
