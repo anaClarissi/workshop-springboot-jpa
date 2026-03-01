@@ -1,33 +1,45 @@
-HELP.md
+# --- JAVA & MAVEN ---
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!.mvn/wrapper/maven-wrapper.jar
+/temp/
+*.class
+*.log
+*.ctxt
 
-### STS ###
+# --- SPRING BOOT ---
+HELP.md
+.mvn/
+.metadata/
+
+# --- INTELLIJ IDEA ---
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+gen/
+
+# --- VS CODE ---
+.vscode/
+.factorypath
+
+# --- ECLIPSE / STS ---
 .apt_generated
 .classpath
-.factorypath
 .project
 .settings
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+# --- NETBEANS ---
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# --- SISTEMA ---
+.DS_Store
+Thumbs.db
+desktop.ini
