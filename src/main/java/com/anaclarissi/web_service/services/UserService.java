@@ -2,6 +2,7 @@ package com.anaclarissi.web_service.services;
 
 import com.anaclarissi.web_service.entities.User;
 import com.anaclarissi.web_service.repositories.UserRepository;
+import com.anaclarissi.web_service.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class UserService {
 
         Optional<User> user = repository.findById(id);
 
-        return user.get();
+        return user.orElseThrow(() -> new ResourceNotFoundException(id));
 
     }
 
