@@ -87,6 +87,12 @@ public class OrderItem implements Serializable {
 
     }
 
+    public Double getSubTotal() {
+
+        return getPrice() * getQuantity();
+
+    }
+
     @Override
     public boolean equals(Object object) {
 
