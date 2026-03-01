@@ -28,4 +28,10 @@ public class UserService {
 
     }
 
+    public User insert(User user) {
+
+        return repository.save(user);
+
+    }
+
 }
