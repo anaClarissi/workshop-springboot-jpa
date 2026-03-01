@@ -40,4 +40,24 @@ public class UserService {
 
     }
 
+    public User update(Long id, User user) {
+
+        User entity = repository.getReferenceById(id);
+
+        updateDate(entity, user);
+
+        return repository.save(entity);
+
+    }
+
+    private void updateDate(User entity, User user) {
+
+        entity.setName(user.getName());
+
+        entity.setEmail(user.getEmail());
+
+        entity.setPhone(user.getPhone());
+
+    }
+
 }
